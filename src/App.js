@@ -3,6 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./app.css";
 import CardPersonaje from "./components/CardPersonaje";
 import { useEffect, useState } from "react";
+import Spinner from "./components/Spinner";
 
 function App() {
   const [personaje, setPersonaje] = useState({});
@@ -19,7 +20,6 @@ function App() {
       const dato = await respuesta.json();
       // console.log(dato[0]);
       setPersonaje(dato[0]);
-
     } catch (error) {
       console.log(error);
       //mostrar un cartel al usuario de que no se pudo cargar el dato
@@ -36,8 +36,11 @@ function App() {
           alt="The Simpsons"
         ></img>
       </div>
-      <div className="text-center py-3">
-        <Button onClick={consultarAPI} variant="warning">Obtener frase</Button>
+      <div className="text-center">
+        <Button onClick={consultarAPI} variant="warning">
+          Obtener frase
+        </Button>
+        <Spinner></Spinner>
       </div>
       <CardPersonaje personaje={personaje}></CardPersonaje>
     </Container>
