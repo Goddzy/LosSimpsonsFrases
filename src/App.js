@@ -7,6 +7,8 @@ import Spinner from "./components/Spinner";
 
 function App() {
   const [personaje, setPersonaje] = useState({});
+  const [mostrarSpinner, setMostrarSpinner] = useState(true);
+
 
   useEffect(() => {
     consultarAPI();
@@ -14,17 +16,26 @@ function App() {
 
   const consultarAPI = async () => {
     try {
+      //actualizar el state del spinner
+      setMostrarSpinner(true);
       const respuesta = await fetch(
         "https://thesimpsonsquoteapi.glitch.me/quotes"
       );
       const dato = await respuesta.json();
       // console.log(dato[0]);
       setPersonaje(dato[0]);
+      //actualizar el state del spinner
+      setMostrarSpinner(false);
     } catch (error) {
-      console.log(error);
       //mostrar un cartel al usuario de que no se pudo cargar el dato
+      setMostrarSpinner(false);
     }
   };
+
+  //operador ternario
+  // (condición lógica)? (código cuando la condición sea true):(código cuando la condición sea false)
+
+  const mostrarComponente = (mostrarSpinner===true)? (<Spinner></Spinner>): (      <CardPersonaje personaje={personaje}></CardPersonaje>)
 
   return (
     <Container className="py-5">
@@ -37,12 +48,11 @@ function App() {
         ></img>
       </div>
       <div className="text-center">
-        <Button onClick={consultarAPI} variant="warning">
+        <Button onClick={consultarAPI} className="mb-2" variant="warning">
           Obtener frase
         </Button>
-        <Spinner></Spinner>
       </div>
-      <CardPersonaje personaje={personaje}></CardPersonaje>
+      {mostrarComponente}
     </Container>
   );
 }
