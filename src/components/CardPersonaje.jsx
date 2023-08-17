@@ -6,7 +6,7 @@ const CardPersonaje = ({ personaje }) => {
       <Card>
         <Row>
           <Col md={4}>
-            <img src={personaje.image} alt={personaje.character}></img>
+            <img className="w-100" src={personaje.image} alt={personaje.character}></img>
           </Col>
           <Col md={8}>
             <Card.Body>

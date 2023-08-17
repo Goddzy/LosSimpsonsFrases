@@ -36,8 +36,8 @@ function App() {
           alt="The Simpsons"
         ></img>
       </div>
-      <div className="text-center pt-3">
-        <Button variant="warning">Obtener frase</Button>
+      <div className="text-center py-3">
+        <Button onClick={consultarAPI} variant="warning">Obtener frase</Button>
       </div>
       <CardPersonaje personaje={personaje}></CardPersonaje>
     </Container>
