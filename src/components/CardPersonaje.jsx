@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
-const CardPersonaje = () => {
+const CardPersonaje = ({personaje}) => {
   return (
     <Card className="mt-5 rounded-4 w-100">
       <Row>
