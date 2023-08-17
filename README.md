@@ -2,11 +2,6 @@
 
 Un proyecto realizado enteramente con React, donde se practicó la utilización de una API (application programming interface).
 
-## Demo del proyecto
-
-Probá la demo: [Demo Los Simpsons Frases](https://listaparaanotartareas.netlify.app/)
-
-
 ## Librerías implementadas
 
 1. React-Bootstrap
